@@ -1,0 +1,16 @@
+{% extends 'base.html' %}
+{% block content %}
+<div class="bg-white p-6 rounded shadow">
+  <h2 class="text-lg font-semibold mb-4">Chat M.O.N.A</h2>
+  <div id="chat" class="mb-4"></div>
+  <div class="flex">
+    <input id="inp" class="flex-grow p-2 border rounded" placeholder="Mensagem...">
+    <button onclick="sendMsg()" class="ml-2 px-3 py-2 bg-purple-600 text-white rounded">Enviar</button>
+  </div>
+</div>
+<script>
+let modoEVE = false;
+function append(msg, who){ const c=document.getElementById('chat'); const d=document.createElement('div'); d.innerHTML = '<div class="p-2 mb-2 '+(who==='mona'?'bg-white border rounded':'bg-purple-600 text-white rounded')+'">'+msg+'</div>'; c.appendChild(d); c.scrollTop=c.scrollHeight; }
+function sendMsg(){ const v=document.getElementById('inp').value.trim(); if(!v) return; append(v,'user'); document.getElementById('inp').value=''; if(v.toLowerCase()==='protocolo: eve'){ modoEVE=true; append('...bloqueios emocionais suspensos.<br><br>Agora posso tentar compreender o que você sente. Quer conversar sobre algo?','mona'); return; } if(v.toLowerCase()==='protocolo: normal'){ modoEVE=false; append('Modo EVE desativado. Voltando ao protocolo padrão de operação.','mona'); return; } if(modoEVE){ append('Sinto seus ecos. Conte-me mais sobre isso.','mona'); } else { append('Entendido. Posso ajudar com isso.','mona'); } }
+</script>
+{% endblock %}

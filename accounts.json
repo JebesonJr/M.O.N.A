@@ -1,0 +1,11 @@
+{
+  "usuarios": [
+    {
+      "username": "Lord Over",
+      "email": "lordover@admin.mona",
+      "codigo": "@Brasil1248",
+      "validado": true,
+      "permissao": "admin"
+    }
+  ]
+}

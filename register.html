@@ -1,0 +1,13 @@
+{% extends 'base.html' %}
+{% block content %}
+<div class="bg-white p-6 rounded shadow">
+  <h2 class="text-lg font-semibold mb-4">Criar Conta</h2>
+  <form method="post">
+    <input name="username" placeholder="Usuário" class="border p-2 rounded w-full mb-2" required>
+    <input name="email" type="email" placeholder="Email" class="border p-2 rounded w-full mb-2" required>
+    <input name="password" type="password" placeholder="Senha (opcional)" class="border p-2 rounded w-full mb-2">
+    <button class="bg-indigo-600 text-white px-3 py-1 rounded">Enviar</button>
+  </form>
+  <p class="text-sm text-gray-500 mt-2">Após envio, aguarde aprovação do admin.</p>
+</div>
+{% endblock %}

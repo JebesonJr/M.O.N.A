@@ -1,0 +1,10 @@
+{% extends 'base.html' %}
+{% block content %}
+<div class="bg-white p-6 rounded shadow">
+  <h2 class="text-lg font-semibold mb-4">Validar Conta</h2>
+  <form method="post">
+    <input name="code" placeholder="Código de validação" class="border p-2 rounded w-full mb-2" required>
+    <button class="bg-rose-500 text-white px-3 py-1 rounded">Validar</button>
+  </form>
+</div>
+{% endblock %}

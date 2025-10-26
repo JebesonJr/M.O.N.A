@@ -1,0 +1,11 @@
+{% extends 'base.html' %}
+{% block content %}
+<div class="bg-white p-6 rounded shadow max-w-md mx-auto">
+  <h2 class="text-lg font-semibold mb-4">Admin - Login</h2>
+  <form method="post">
+    <input name="username" placeholder="Usuário" class="border p-2 rounded w-full mb-2" value="{{ default_user }}" required>
+    <input name="password" type="password" placeholder="Senha" class="border p-2 rounded w-full mb-2" required>
+    <button class="bg-gray-700 text-white px-3 py-1 rounded">Entrar</button>
+  </form>
+</div>
+{% endblock %}
