@@ -1,26 +1,13 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-  <meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
-  <script src="https://cdn.tailwindcss.com"></script>
+    <meta charset="UTF-8">
+    <title>M.O.N.A</title>
+    <script src="https://cdn.tailwindcss.com"></script>
 </head>
-<body class="bg-gray-50 min-h-screen">
-  <div class="max-w-4xl mx-auto p-6">
-    <header class="flex justify-between items-center mb-6">
-      <div><h1 class="text-xl font-bold text-purple-700">M.O.N.A</h1><p class="text-sm text-gray-600">Mente Operacional Neural Autônoma</p></div>
-      <div>
-        <a href="/" class="px-3 py-1 bg-purple-600 text-white rounded">Chat</a>
-        <a href="/register" class="px-3 py-1 bg-indigo-500 text-white rounded ml-2">Criar Conta</a>
-        <a href="/validate" class="px-3 py-1 bg-rose-500 text-white rounded ml-2">Validar</a>
-        <a href="/admin/login" class="px-3 py-1 bg-gray-700 text-white rounded ml-2">Admin</a>
-      </div>
-    </header>
-    {% with messages = get_flashed_messages() %}
-      {% if messages %}
-        <div class="mb-4">{% for m in messages %}<div class="p-3 bg-yellow-100 text-yellow-800 rounded mb-2">{{ m }}</div>{% endfor %}</div>
-      {% endif %}
-    {% endwith %}
-    {% block content %}{% endblock %}
-  </div>
+<body class="bg-purple-50 text-gray-800 min-h-screen flex flex-col items-center justify-center">
+    <div class="max-w-md w-full bg-white rounded-2xl shadow-lg p-6">
+        {% block content %}{% endblock %}
+    </div>
 </body>
 </html>
