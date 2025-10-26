@@ -1,11 +1,8 @@
-{% extends 'base.html' %}
+{% extends "base.html" %}
 {% block content %}
-<div class="bg-white p-6 rounded shadow max-w-md mx-auto">
-  <h2 class="text-lg font-semibold mb-4">Admin - Login</h2>
-  <form method="post">
-    <input name="username" placeholder="Usuário" class="border p-2 rounded w-full mb-2" value="{{ default_user }}" required>
-    <input name="password" type="password" placeholder="Senha" class="border p-2 rounded w-full mb-2" required>
-    <button class="bg-gray-700 text-white px-3 py-1 rounded">Entrar</button>
-  </form>
-</div>
+<h1 class="text-xl font-bold mb-4">Painel Administrativo</h1>
+<form method="post">
+    <input type="password" name="password" placeholder="Senha do admin" class="border p-2 w-full rounded mb-3">
+    <button class="bg-purple-600 text-white px-4 py-2 rounded w-full">Entrar</button>
+</form>
 {% endblock %}
