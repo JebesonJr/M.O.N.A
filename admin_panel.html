@@ -1,28 +1,16 @@
-{% extends 'base.html' %}
+{% extends "base.html" %}
 {% block content %}
-<div class="bg-white p-6 rounded shadow">
-  <div class="flex justify-between items-center mb-4">
-    <h2 class="text-lg font-semibold">Painel Admin - Contas</h2>
-    <div><span class="text-sm text-gray-600 mr-3">Logado como <b>{{ admin_user }}</b></span><a href="/admin/logout" class="px-3 py-1 bg-red-500 text-white rounded">Sair</a></div>
-  </div>
-  <div class="mb-4">
-    <a href="/admin/panel?status=pending" class="mr-2">Pendentes</a> | <a href="/admin/panel?status=active" class="mx-2">Ativas</a> | <a href="/admin/panel?status=rejected" class="ml-2">Rejeitadas</a>
-  </div>
-  {% if accounts %}
-  <table class="w-full text-left border-collapse">
-    <thead><tr class="bg-gray-100"><th class="p-2">ID</th><th class="p-2">Usuário</th><th class="p-2">Email</th><th class="p-2">Criado</th><th class="p-2">Status</th><th class="p-2">Ações</th></tr></thead>
-    <tbody>
-    {% for a in accounts %}
-      <tr class="border-t"><td class="p-2">{{ a.id }}</td><td class="p-2">{{ a.username }}</td><td class="p-2">{{ a.email }}</td><td class="p-2">{{ a.created_at }}</td><td class="p-2">{{ a.status }}</td>
-        <td class="p-2">{% if a.status=='pending' %}
-          <form method="post" action="/admin/approve" style="display:inline"><input type="hidden" name="id" value="{{ a.id }}"><input type="text" name="note" placeholder="nota admin (opcional)" class="p-1 border rounded mr-1"><button class="px-2 py-1 bg-green-600 text-white rounded">Aprovar</button></form>
-          <form method="post" action="/admin/reject" style="display:inline"><input type="hidden" name="id" value="{{ a.id }}"><input type="text" name="note" placeholder="motivo (opcional)" class="p-1 border rounded mr-1"><button class="px-2 py-1 bg-red-600 text-white rounded">Rejeitar</button></form>
-        {% else %} <div class="text-sm text-gray-600">N/A</div> {% endif %}</td></tr>
+<h1 class="text-xl font-bold mb-4 text-purple-700">Aprovar Usuários</h1>
+<ul class="space-y-2">
+    {% for user, info in users.items() %}
+        <li class="flex justify-between border-b py-2">
+            <span>{{ user }} ({{ info.email }})</span>
+            {% if not info.approved %}
+                <a href="/approve/{{ user }}" class="text-green-600 font-semibold">Aprovar</a>
+            {% else %}
+                <span class="text-gray-500">Aprovado</span>
+            {% endif %}
+        </li>
     {% endfor %}
-    </tbody>
-  </table>
-  {% else %}
-    <p class="text-sm text-gray-500">Nenhuma conta encontrada.</p>
-  {% endif %}
-</div>
+</ul>
 {% endblock %}
