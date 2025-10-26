@@ -1,1 +1,1 @@
-web: gunicorn mona3:app
+web: gunicorn mona:app
